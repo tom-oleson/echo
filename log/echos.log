@@ -1,0 +1,35 @@
+10/12/2019 22:16:19.099 [always] <28970>: ECHOS 0.1 build: Oct 12 2019 22:16:15
+10/12/2019 22:16:19.099 [info] <28978>: listening on port 54000
+10/12/2019 22:25:15.969 [always] <29029>: ECHOS 0.1 build: Oct 12 2019 22:25:12
+10/12/2019 22:25:15.969 [info] <29037>: listening on port 54000
+10/12/2019 22:25:30.490 [info] <29037>: 6: connected: tom-thinkpad-t4:54666
+10/12/2019 22:25:37.399 [info] <29031>: 6: received message:
+10/12/2019 22:25:37.399 [info] <29031>: 24 6e 61 6d 65 0a                                 $name.
+10/12/2019 22:26:15.062 [info] <29037>: 6: closed connection.
+10/12/2019 22:26:15.062 [info] <29033>: 6: socket removed from notify list
+10/12/2019 22:27:31.679 [always] <29057>: ECHOS 0.1 build: Oct 12 2019 22:27:28
+10/12/2019 22:27:31.679 [info] <29065>: listening on port 54000
+10/12/2019 22:27:41.443 [always] <29084>: ECHOS 0.1 build: Oct 12 2019 22:27:38
+10/12/2019 22:27:41.443 [info] <29092>: listening on port 54000
+10/12/2019 22:55:31.531 [always] <29276>: ECHOS 0.1 build: Oct 12 2019 22:55:28
+10/12/2019 22:55:31.531 [info] <29284>: listening on port 54000
+10/12/2019 22:55:41.748 [info] <29284>: 6: connected: tom-thinkpad-t4:54706
+10/12/2019 22:55:46.156 [info] <29284>: 7: connected: tom-thinkpad-t4:54708
+10/12/2019 22:56:01.980 [info] <29278>: 6: received message:
+10/12/2019 22:56:01.980 [info] <29278>: 54 68 69 73 20 69 73 20 61 20 6d 65 73 73 61 67   This is a messag
+10/12/2019 22:56:01.980 [info] <29278>: 65 20 66 72 6f 6d 20 63 6c 69 65 6e 74 20 23 31   e from client #1
+10/12/2019 22:56:01.980 [info] <29278>: 0a                                                .
+10/12/2019 22:56:35.826 [info] <29284>: 6: closed connection.
+10/12/2019 22:56:38.529 [info] <29284>: 7: closed connection.
+10/12/2019 23:12:26.354 [always] <29471>: ECHOS 0.1 build: Oct 12 2019 23:12:22
+10/12/2019 23:12:26.354 [info] <29479>: listening on port 54000
+10/12/2019 23:12:36.772 [info] <29479>: 6: connected: tom-thinkpad-t4:54716
+10/12/2019 23:12:36.772 [info] <29473>: 6: socket added to watchers list: tom-thinkpad-t4:54716
+10/12/2019 23:12:45.487 [info] <29479>: 7: connected: tom-thinkpad-t4:54718
+10/12/2019 23:12:45.487 [info] <29475>: 7: socket added to watchers list: tom-thinkpad-t4:54718
+10/12/2019 23:13:01.514 [info] <29477>: 6: received message:
+10/12/2019 23:13:01.514 [info] <29477>: 54 68 69 73 20 69 73 20 61 20 6d 65 73 73 61 67   This is a messag
+10/12/2019 23:13:01.514 [info] <29477>: 65 20 66 72 6f 6d 20 23 31 0a                     e from #1.
+10/12/2019 23:13:15.538 [info] <29474>: 7: received message:
+10/12/2019 23:13:15.538 [info] <29474>: 54 68 69 73 20 69 73 20 61 20 6d 65 73 73 61 67   This is a messag
+10/12/2019 23:13:15.538 [info] <29474>: 65 20 66 72 6f 6d 20 23 32 0a                     e from #2.
