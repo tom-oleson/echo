@@ -12,11 +12,9 @@
         \______/
 </pre>
 
-# echo
-Data Replicator
+# Data Replicator
 
-
-================================================
+Requires libcm_64.so from project common
 
 Features:
 1. Non-blocking I/O
@@ -24,9 +22,10 @@ Features:
 3. Event driven (epoll)
 4. Uses Linux system resources/libraries; no third-party libraries
 5. Event loop in its own thread
-6. Single thread listener and thread-pool dispatcher implementation
+6. Single thread listener and thread-pool dispatcher
 7. Written in C++ to be Fast!
 
 
 When data is received from one connection, a copy of the data is
 sent to all other connections.
+
