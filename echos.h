@@ -38,6 +38,7 @@
 #include <vector>
 
 #include "log.h"
+#include "util.h"
 #include "logger.h"
 #include "server.h"
 

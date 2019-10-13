@@ -53,8 +53,11 @@ int main(int argc, char *argv[]) {
     bool version = false;
     int interval = 0;
     int keep = 0;
+    std::string host_name;
+    int host_port = -1;
+    std::vector<std::string> v;
 
-    while((opt = getopt(argc, argv, "hl:p:i:k:v")) != -1) {
+    while((opt = getopt(argc, argv, "hc:l:p:i:k:v")) != -1) {
         switch(opt) {
             case 'p':
                 port = atoi(optarg);
@@ -76,9 +79,17 @@ int main(int argc, char *argv[]) {
                 keep = atoi(optarg);
                 break;
 
+            case 'c':
+                v = cm_util::split(optarg, ':');
+                if(v.size() == 2) {
+                    host_name = v[0];
+                    host_port = atoi(v[1].c_str());
+                }
+                break;
+
             case 'h':
             default:
-                printf("usage: %s [-p<port>] [-l<level>] [-i<interval>] [-k<keep>] [-v]\n", argv[0]);
+                printf("usage: %s [-p<port>] [-l<level>] [-i<interval>] [-k<keep>] [-c<host:port>] [-v]\n", argv[0]);
                 exit(0);
         }
     }
@@ -86,7 +97,7 @@ int main(int argc, char *argv[]) {
     echos::init_logs((cm_log::level::en) log_lvl, interval, keep);
     cm_log::always(cm_util::format("ECHOS %s build: %s %s", VERSION ,__DATE__,__TIME__));
     
-    echos::run(port);
+    echos::run(port, host_name, host_port);
 
     return 0;
 }

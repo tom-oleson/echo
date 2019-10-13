@@ -120,7 +120,26 @@ void request_dealloc(void *arg) {
     delete (cm_net::input_event *) arg;
 }
 
-void echos::run(int port) {
+void client_receive(int socket, const char *buf, size_t sz) {
+
+    cm_log::info(cm_util::format("%d: received response:", socket));
+    cm_log::hex_dump(cm_log::level::info, buf, sz, 16);
+
+    cm_net::input_event event(socket, std::string(buf, sz));
+    watchers.notify_all(&event);
+}
+
+void echos::run(int port, const std::string &host_name, int host_port) {
+
+    cm_net::client_thread *client = nullptr;
+
+    if(host_port != -1) {
+        client = new cm_net::client_thread(host_name, host_port, client_receive); 
+        if(client->is_started() && !client->is_done()) {
+            cm_log::info(cm_util::format("connected to: %s:%d", host_name.c_str(), host_port));
+            watchers.add(client->get_socket());
+        }
+    }
 
     // create thread pool that will do work for the server
     cm_thread::pool thread_pool(6);
@@ -137,4 +156,6 @@ void echos::run(int port) {
     // wait for pool_server threads to complete all work tasks
     thread_pool.wait_all();
 
+
+    if(nullptr != client) delete client;
 }

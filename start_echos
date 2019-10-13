@@ -1,0 +1,4 @@
+#!/bin/sh
+export LD_LIBRARY_PATH=../../common/lib
+./echos -p56010 -c127.0.0.1:54000
+
