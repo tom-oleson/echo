@@ -52,6 +52,7 @@ Mkfile.old
 dkms.conf
 
 echos
+core
 */log
 */unit_test/cppunit_results.xml
 */unit_test/log/
