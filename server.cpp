@@ -131,16 +131,6 @@ void client_receive(int socket, const char *buf, size_t sz) {
 
 void echos::run(int port, const std::string &host_name, int host_port) {
 
-    cm_net::client_thread *client = nullptr;
-
-    if(host_port != -1) {
-        client = new cm_net::client_thread(host_name, host_port, client_receive); 
-        if(client->is_started() && !client->is_done()) {
-            cm_log::info(cm_util::format("connected to: %s:%d", host_name.c_str(), host_port));
-            watchers.add(client->get_socket());
-        }
-    }
-
     // create thread pool that will do work for the server
     cm_thread::pool thread_pool(6);
 
@@ -148,9 +138,46 @@ void echos::run(int port, const std::string &host_name, int host_port) {
     cm_net::pool_server server(port, &thread_pool, request_handler,
         request_dealloc);
 
+    cm_net::client_thread *client = nullptr;
+    bool connected = false;
+    if(host_port != -1) {
+        cm_log::info(cm_util::format("client host: %s:%d", host_name.c_str(), host_port));
+    }
+
+    time_t next_connect_time = 0;
+
     while(1) {
-        timespec delay = {0, 100000000};   // 100 ms
+        timespec delay = {0, 1000000000};   // 1000 ms
         nanosleep(&delay, NULL);
+
+        if(host_port != -1) {
+            if(nullptr == client) {
+                client = new cm_net::client_thread(host_name, host_port, client_receive); 
+                next_connect_time = cm_time::clock_seconds() + 60;
+            }
+
+            // if client thread is running, we are connected
+            if(nullptr != client && client->is_connected()) {
+                if(!connected) {
+                    watchers.add(client->get_socket());
+                    connected = true;
+                }
+            }    
+
+            // if client thread is NOT running, we are NOT connected
+            if(nullptr != client && !client->is_connected()) {
+                if(connected) {
+                    connected = false;
+                    watchers.remove(client->get_socket());
+                }
+
+                if(cm_time::clock_seconds() > next_connect_time) {
+                    // attempt reconnect
+                    client->start();
+                    next_connect_time = cm_time::clock_seconds() + 60;
+                }
+            }
+        }        
     }
 
     // wait for pool_server threads to complete all work tasks

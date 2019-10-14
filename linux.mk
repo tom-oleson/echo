@@ -62,4 +62,5 @@ clean:
 all: clean prod
 
 prod: $(EXE)
-	export LD_LIBRARY_PATH=$(CM_LIB_DIR)/lib:$(LD_LIBRARY_PATH);$(PWD)/$(EXE) -p56010
+	export LD_LIBRARY_PATH=$(CM_LIB_DIR)/lib:$(LD_LIBRARY_PATH);$(PWD)/$(EXE) -p56010 -clocalhost:54000
+
