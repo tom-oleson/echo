@@ -3,7 +3,7 @@
         / ____ \
    ____/ /    \ \
   / ____/   o  \ \
- / /     __/   / / ECHO
+ / /     __/   / / ECHOS
 / /  o__/  \  / /  Data Replicator
 \ \     \__/  \ \  Copyright (C) 2019, Tom Oleson, All Rights Reserved.
  \ \____   \   \ \
