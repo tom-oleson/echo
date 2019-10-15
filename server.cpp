@@ -30,7 +30,6 @@
 #include <vector>
 #include "server.h"
 
-
 class watcher_store: protected cm::mutex {
 
 protected:
@@ -49,8 +48,6 @@ public:
     bool remove(int fd) {
         bool removed = false;
         lock();
-
-        // remove matching fd
         for(auto it = _list.begin(); it != _list.end(); it++) {
             if((*it) == fd) {
                 _list.erase(it);
@@ -58,7 +55,6 @@ public:
                 break;
             }
         }
-        
         unlock();
         return removed;   
     }
@@ -87,9 +83,7 @@ public:
     }
 };
 
-
 watcher_store watchers;
-
 
 void request_handler(void *arg) {
 
@@ -182,7 +176,6 @@ void echos::run(int port, const std::string &host_name, int host_port) {
 
     // wait for pool_server threads to complete all work tasks
     thread_pool.wait_all();
-
 
     if(nullptr != client) delete client;
 }
