@@ -38,7 +38,7 @@ R"(  / ____/   o  \ \)""\n"
 R"( / /     __/   / / ECHOS)""\n"
 R"(/ /  o__/  \  / /  Data Replicator)""\n"
 R"(\ \     \__/  \ \  Copyright (C) 2019, Tom Oleson, All Rights Reserved.)""\n"
-R"( \ \____   \   \ \)""\n"
+R"( \ \____   \   \ \ Made in the U.S.A.)""\n"
 R"(  \____ \   o  / /)""\n"
 R"(       \ \____/ /)""\n"
 R"(        \______/)""\n";
