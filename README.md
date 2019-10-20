@@ -6,7 +6,7 @@
  / /     __/   / / ECHOS
 / /  o__/  \  / /  Data Replicator
 \ \     \__/  \ \  Copyright (C) 2019, Tom Oleson, All Rights Reserved.
- \ \____   \   \ \
+ \ \____   \   \ \ Made in the U.S.A.
   \____ \   o  / /
        \ \____/ /
         \______/
