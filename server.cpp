@@ -141,7 +141,7 @@ void echos::run(int port, const std::string &host_name, int host_port) {
     time_t next_connect_time = 0;
 
     while(1) {
-        timespec delay = {0, 1000000000};   // 1000 ms
+        timespec delay = {0, 999000000};   // 999ms
         nanosleep(&delay, NULL);
 
         if(host_port != -1) {
