@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     bool version = false;
     int interval = 0;
     int keep = 0;
-    std::string host_name;
+    std::string host_name = "localhost";
     int host_port = -1;
     std::vector<std::string> v;
 
